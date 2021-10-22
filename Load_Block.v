@@ -36,7 +36,7 @@ module Load_Block(
          2'b11: Load_Byte = {Load_Memory[31:24], 24'h000000};
       endcase
 		
-		 
+	
 		 
     always @(*)
        case (Load_Select)
