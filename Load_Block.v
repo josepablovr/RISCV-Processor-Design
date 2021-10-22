@@ -31,9 +31,9 @@ module Load_Block(
 	 always @(*)
       case (Offset)
          2'b00: Load_Byte = {24'h000000, Load_Memory[7:0]};
-         2'b01: Load_Byte = {16'h0000, Load_Memory[15:8], 8'h00};
-         2'b10: Load_Byte = {8'h00, Load_Memory[23:16], 16'h0000};
-         2'b11: Load_Byte = {Load_Memory[31:24], 24'h000000};
+         2'b01: Load_Byte = {24'h000000, Load_Memory[15:8]};
+         2'b10: Load_Byte = {24'h000000, Load_Memory[23:16]};
+         2'b11: Load_Byte = {24'h000000,Load_Memory[31:24]};
       endcase
 		
 	
