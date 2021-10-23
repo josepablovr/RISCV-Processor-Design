@@ -17,6 +17,18 @@
 // Revision 0.01 - File Created
 // Additional Comments: 
 //
+/*
+Funcionalidad: obtener el byte o la palabra a almacenar en los registros
+Entrada: 
+Load_Memory: palabra obtenida de la memoria
+Load_Select: elige si se carga un byte o una palabra
+Offset: elige el byte que se carga de Load_Memoru
+Salida:
+Load_data: 
+Razón de uso:
+El módulo se introdujo para poder guardar las instrucciones en una memoria y poder acceder a ellas
+*/
+
 //////////////////////////////////////////////////////////////////////////////////
 module Load_Block(
     input [31:0] Load_Memory,
