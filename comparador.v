@@ -42,6 +42,6 @@ module comparador(
       if (RD1 != RD2)
          BrRes <= 1'b1; //BrRes se establece en 1 si no iguales
       else
-         BrRes <= 1'b0; ////BrRes se establece en 0 si iguales
+         BrRes <= 1'b0; ////BrRes se establece en 0 si  iguales
 endmodule
 

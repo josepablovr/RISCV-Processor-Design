@@ -22,7 +22,7 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module comparador_test;
+module branch_comp_tb;
 
 	// ENTRADAS
 	reg [31:0] RD1;
@@ -32,7 +32,7 @@ module comparador_test;
 	wire BrRes;
 
 	// Se llama al modulo
-	comparador uut (
+	branch_comp uut (
 		.RD1(RD1), 
 		.RD2(RD2), 
 		.BrRes(BrRes)
