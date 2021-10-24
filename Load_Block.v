@@ -19,14 +19,15 @@
 //
 /*
 Funcionalidad: obtener el byte o la palabra a almacenar en los registros
-Entrada: 
+Entradas: 
 Load_Memory: palabra obtenida de la memoria
 Load_Select: elige si se carga un byte o una palabra
-Offset: elige el byte que se carga de Load_Memoru
-Salida:
-Load_data: 
+Offset: elige el byte que se carga de Load_Memory
+Salidas:
+Load_data: La palabra o byte que se almacenará en el registro
 Razón de uso:
-El módulo se introdujo para poder guardar las instrucciones en una memoria y poder acceder a ellas
+El módulo se introdujo con el fin de poder elegir si cargar la palabra leída o solo un
+byte de ella, en uno de los resgistros
 */
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -37,9 +38,11 @@ module Load_Block(
     output reg [31:0] Load_data
     );
 	 	 
-		 
+	 //Variable intermedia para almacenar el Byte seleccionado
 	 reg [31:0] Load_Byte;
-			 
+	
+	 //Mux para elegir el byte segun el offset
+	 //Se concatena el byte seleccionado con 24 ceros
 	 always @(*)
       case (Offset)
          2'b00: Load_Byte = {24'h000000, Load_Memory[7:0]};
@@ -49,9 +52,9 @@ module Load_Block(
       endcase
 		
 	
-		 
+	 //Mux para seleccionar si se carga el byte o la palabra 	 
     always @(*)
-       case (Load_Select)
+       case (Load_Select) //Load_Select determina el dato a cargar
           1'b0: Load_data = Load_Memory;
           1'b1: Load_data = Load_Byte;       
        endcase

@@ -5,7 +5,7 @@
 // 
 // Create Date:    23:41:29 10/21/2021 
 // Design Name: 
-// Module Name:    comparador 
+// Module Name:    branch_comp 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -44,4 +44,3 @@ module comparador(
       else
          BrRes <= 1'b0; ////BrRes se establece en 0 si iguales
 endmodule
-
