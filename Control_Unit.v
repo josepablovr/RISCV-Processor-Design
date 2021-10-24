@@ -43,12 +43,12 @@ Se debe controlar todos los módulos en conjunto para que la arquitectura funcion
 */
 //////////////////////////////////////////////////////////////////////////////////
 module Control_Unit(
-    input [5:0] opcode,
+    input [6:0] opcode,
 	 input funct7,
 	 input [2:0] funct3,
     input BrRes,
     output reg PCSel,
-    output reg [2:0] ImmSel,
+    output reg [1:0] ImmSel,
     output reg RegWEn,
     output reg Bsel,
     output reg Asel,
@@ -60,10 +60,10 @@ module Control_Unit(
     );	
 	 
 	 always@(*) //Se realiza el caso para opcode difente
-		case(opcode[5:0])
-		6'b011001: begin //INSTRUCCIONES ARITMETICAS REGISTRO-REGISTRO
+		case(opcode[6:0])
+		7'b0110011: begin //INSTRUCCIONES ARITMETICAS REGISTRO-REGISTRO
 							PCSel = 1'b0; 
-							ImmSel = 3'b000;
+							ImmSel = 2'b00;
 							RegWEn = 1'b1;
 							Bsel = 1'b0;
 							Asel = 1'b0;
@@ -77,9 +77,9 @@ module Control_Unit(
 							endcase
 						end
 						
-		6'b001001: begin //INSTRUCCIONES ARITMETOLOGICAS REGISTRO-INMEDIATO
+		7'b0010011: begin //INSTRUCCIONES ARITMETOLOGICAS REGISTRO-INMEDIATO
 							PCSel = 1'b0; 
-							ImmSel = 3'b000;
+							ImmSel = 2'b00;
 							RegWEn = 1'b1;
 							Bsel = 1'b1;
 							Asel = 1'b0;
@@ -97,9 +97,9 @@ module Control_Unit(
 							endcase
 						end
 						
-		6'b000001: begin //INSTRUCCIONES LOAD
+		7'b0000011: begin //INSTRUCCIONES LOAD
 							PCSel = 1'b0; 
-							ImmSel = 3'b000;
+							ImmSel = 2'b00;
 							RegWEn = 1'b1;
 							Bsel = 1'b1;
 							Asel = 1'b0;
@@ -115,9 +115,9 @@ module Control_Unit(
 											
 						end						
 		
-		6'b110011: begin //INSTRUCCION JUMP AND LINK (jalr)
+		7'b1100111: begin //INSTRUCCION JUMP AND LINK (jalr)
 							PCSel = 1'b1; 
-							ImmSel = 3'b000;
+							ImmSel = 2'b00;
 							RegWEn = 1'b1;
 							Bsel = 1'b1;
 							Asel = 1'b0;
@@ -128,9 +128,9 @@ module Control_Unit(
 							Load_Select = 1'b0;						
 						end
 		
-		6'b010001: begin //INSTRUCCIONES STORE
+		7'b0100011: begin //INSTRUCCIONES STORE
 							PCSel = 1'b0; 
-							ImmSel = 3'b011;
+							ImmSel = 2'b11;
 							RegWEn = 1'b0;
 							Bsel = 1'b1;
 							Asel = 1'b0;
@@ -144,8 +144,8 @@ module Control_Unit(
 							endcase
 						end
 						
-		6'b110001: begin //INSTRUCCION BRANCH NOT EQUAL	(bne)							 
-							ImmSel = 3'b010;
+		7'b1100011: begin //INSTRUCCION BRANCH NOT EQUAL	(bne)							 
+							ImmSel = 2'b10;
 							RegWEn = 1'b0;
 							Bsel = 1'b1;
 							Asel = 1'b1; 
@@ -160,9 +160,9 @@ module Control_Unit(
 							endcase							
 						end
 						
-		6'b011011: begin //INSTRUCCION LOAD UPPER INMEDIATE (lui)
+		7'b0110111: begin //INSTRUCCION LOAD UPPER INMEDIATE (lui)
 							PCSel = 1'b0; 
-							ImmSel = 3'b100;
+							ImmSel = 2'b00; //No importa el valor
 							RegWEn = 1'b1;
 							Bsel = 1'b0;
 							Asel = 1'b0; //No importa el valor
@@ -175,9 +175,9 @@ module Control_Unit(
 						
 		
 						
-		6'b110111: begin //INSTRUCCION JUMP AND LINK (jal)
+		7'b1101111: begin //INSTRUCCION JUMP AND LINK (jal)
 							PCSel = 1'b1; 
-							ImmSel = 3'b001;
+							ImmSel = 2'b01;
 							RegWEn = 1'b1;
 							Bsel = 1'b1;
 							Asel = 1'b1; 
@@ -190,7 +190,7 @@ module Control_Unit(
 						
 		default: begin //NO HAY INSTRUCCION, se asumen las salidas 0
 							PCSel = 1'b0; 
-							ImmSel = 3'b000;
+							ImmSel = 2'b00;
 							RegWEn = 1'b0;
 							Bsel = 1'b0;
 							Asel = 1'b0; 
