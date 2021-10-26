@@ -30,7 +30,7 @@ B: Entrada del segundo valor a restar almacenado en registro o como inmediato.
 
 Salidas:
 
-S: Resultado de la resta
+R: Resultado de la resta
 
 Razón de uso:
 Este módulo se usa como parte del conjunto de operaciones de la ALU, las
