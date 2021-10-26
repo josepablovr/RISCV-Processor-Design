@@ -23,7 +23,8 @@ module Shift_right(
 	 input [4:0] B,	//dato que define la cantidad de desplazamientos a la derecha
     output reg [31:0] out //salida
     );
-	 
+
+//Hola, funciona
 /* Por medio de un case se realiza el desplazamiento lógico a la derecha */
 always @*
    case (B)
