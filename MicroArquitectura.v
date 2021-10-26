@@ -50,7 +50,7 @@ wire RegWEn;
 wire [1:0] WBsel;
 wire Asel;
 wire Bsel;
-wire [2:0] ImmSel;
+wire [1:0] ImmSel;
 wire [2:0] ALUSel;
 wire StoreSel;
 wire LoadSel;
@@ -129,7 +129,8 @@ Mux2a1 MUX_B_ALU (
 Extensor SIGN_EXTENSION (
     .ImmSel(ImmSel), 
     .inst(Inst[31:7]), 
-    .ImmOut(Imm_out)
+    .ImmOut(Imm_out),
+	 .Imm_U(Imm_tipo_U)
     );
 
 ALU ALU (
@@ -170,7 +171,7 @@ Control_Unit CU (
     .funct7(Inst[30]), 
     .funct3(Inst[14:12]), 
     .BrRes(BrRes), 
-    .PCSel(PCSel), 
+    .PCSel(PCsel), 
     .ImmSel(ImmSel), 
     .RegWEn(RegWEn), 
     .Bsel(Bsel), 

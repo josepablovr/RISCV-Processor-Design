@@ -22,15 +22,15 @@ module Sumador(
 
 	 input signed [31:0] A, //Registro 1 de la suma
 	 input signed [31:0] B, //Registro 2 o Inmediato de la suma 
-	 output [31:0] S //Resultado de la suma
+	 output reg signed [31:0] S //Resultado de la suma
     );
 	 
 	 reg signed [32:0] Sum;
 	 
 	 always @*
-		Sum <= A + B;
+		S <= A + B;
 		
-	 assign S = Sum[31:0];
+	
 	 
 
 
