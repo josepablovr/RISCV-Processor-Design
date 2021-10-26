@@ -5,7 +5,7 @@
 // 
 // Create Date:    23:41:29 10/21/2021 
 // Design Name: 
-// Module Name:    comparador 
+// Module Name:    branch_comp 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -31,7 +31,7 @@ Se desarrolló este comparador fuera de la ALU con el fin de ejecutar la suma
 de PC + imm de manera parela
 */
 //////////////////////////////////////////////////////////////////////////////////
-module comparador(
+module COMPARADOR(
     input [31:0] RD1,
     input [31:0] RD2,
     output reg BrRes
@@ -42,6 +42,5 @@ module comparador(
       if (RD1 != RD2)
          BrRes <= 1'b1; //BrRes se establece en 1 si no iguales
       else
-         BrRes <= 1'b0; ////BrRes se establece en 0 si  iguales
+         BrRes <= 1'b0; ////BrRes se establece en 0 si iguales
 endmodule
-
