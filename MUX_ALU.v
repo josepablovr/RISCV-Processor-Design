@@ -18,6 +18,29 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+/* 
+Funcionalidad: este módulo se encarga de controlar que operación se hace y su resultado. 
+
+Entradas:
+
+ALUSEL: Seleccionador del Mux que indica que operación se realiza
+AND: Entrada que corresponde a la salida con el resultado de la AND
+OR: Entrada que corresponde a la salida con el resultado de la XOR
+RES: Entrada que corresponde a la salida con el resultado de la resta
+SUM: Entrada que corresponde a la salida con el resultado de la suma
+LLS: Entrada que corresponde a la salida con el resultado del desplazamiento a la izquierda
+ASR: Entrada que corresponde a la salida con el resultado del desplazamiento a la derecha
+
+Salidas:
+
+ALUOut: Salida del Mux con el resultado de la operación.
+
+Razón de uso:
+Este módulo se encarga de seleccionar la operación que va a relizar la ALU, dependiendo de
+la instrucción el seleccionador va a escoger que operación realizar.
+*/
+
 module MUX_ALU(
 
 	input [2:0] ALUSEL, //Seleccionador de la ALU de 3 bits
