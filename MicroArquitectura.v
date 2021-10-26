@@ -166,7 +166,7 @@ Load_Block LOAD_BLOCK (
     );	
 
 Control_Unit CU (
-    .opcode(Inst[6:1]), 
+    .opcode(Inst[6:0]), 
     .funct7(Inst[30]), 
     .funct3(Inst[14:12]), 
     .BrRes(BrRes), 
