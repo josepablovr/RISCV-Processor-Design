@@ -32,7 +32,7 @@ module branch_comp_tb;
 	wire BrRes;
 
 	// Se llama al modulo
-	branch_comp uut (
+	COMPARADOR uut (
 		.RD1(RD1), 
 		.RD2(RD2), 
 		.BrRes(BrRes)
