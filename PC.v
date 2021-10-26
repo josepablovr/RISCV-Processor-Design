@@ -22,7 +22,7 @@ module PC(clk, rst, PC_in, PC_out);
 	input clk;	
 	input rst;	
 	input [31:0] PC_in;
-	output reg [31:0] PC_out;
+	output reg [31:0] PC_out=0;
 	
    always @(posedge clk or posedge rst)
       if (rst)

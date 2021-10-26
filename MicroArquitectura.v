@@ -24,25 +24,31 @@ input clk;
 input rst;
 
 //Salidas temporales
+/*
+output wire [31:0] SalidaTempEnt1;
+output wire [4:0] SalidaTempEnt2;
+output wire [31:0] SalidaTempSal;
+*/
 
 // Entradas y salidas alambradas
-wire [31:0] ALU_out;
 wire [31:0] PC_in;
-wire [31:0] PC_out;
 wire [31:0] PC_4;
 wire [31:0] Inst;
 wire [31:0] RD1;
 wire [31:0] RD2;
 wire [31:0] WD3;
-wire [31:0] Imm_tipo_U;
 wire [31:0] Mux_A;
 wire [31:0] Mux_B;
-wire [31:0] Imm_out;
+wire [1:0] Offset;
 wire [31:0] Address;
 wire [31:0] Read_data;
+wire [31:0] Imm_tipo_U;
+wire [31:0] ALU_out;
+wire [31:0] Imm_out;
+wire [31:0] PC_out;
 wire [31:0] Store_out;
 wire [31:0] Load_out;
-wire [1:0] Offset;
+
 
 // Salidas de la Unidad de Control (CU)
 wire PCsel;
@@ -105,13 +111,13 @@ Mux4a1 MUX_WD3 (
     .sel(WBsel), 
     .data_out(WD3)
     );
-	 
-COMPARADOR BRANCH_COMPARE (
+
+BranchCompare COMPARADOR (
     .RD1(RD1), 
     .RD2(RD2), 
     .BrRes(BrRes)
     );
-	 
+ 
 Mux2a1 MUX_A_ALU (
     .sel(Asel), 
     .data_A(RD1), 
@@ -182,4 +188,9 @@ Control_Unit CU (
     .Store_Select(StoreSel), 
     .Load_Select(LoadSel)
     );
+/*	 
+assign SalidaTempEnt1 = WD3;
+assign SalidaTempEnt2 = Inst[11:7];
+assign SalidaTempSal = ALU_out;
+*/
 endmodule

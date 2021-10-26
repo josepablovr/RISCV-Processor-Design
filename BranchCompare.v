@@ -31,7 +31,7 @@ Se desarrolló este comparador fuera de la ALU con el fin de ejecutar la suma
 de PC + imm de manera parela
 */
 //////////////////////////////////////////////////////////////////////////////////
-module COMPARADOR(
+module BranchCompare(
     input [31:0] RD1,
     input [31:0] RD2,
     output reg BrRes

@@ -31,7 +31,7 @@ El módulo se introdujo para poder guardar las instrucciones en una memoria y pod
 */
 
 module InsMem(
-		input [31:0] PC, 
+		input [31:0] PC,
 		output reg [31:0] Inst 
     );
 	 
@@ -46,7 +46,7 @@ module InsMem(
 		begin
 			Mem[i] = 0; //inicialización de memoria
 		end
-		$readmemh("Prueba.txt", Mem, 0); //lee la información contenida en el fichero (en hexadecimal) y la almacena en memoria
+		$readmemh("C:/Users/Usuario/Documents/TEC/Semestre 8/Microprocesadores y Microcontroladores/Proyecto Final/Progras/Prueba.txt", Mem, 0); //lee la información contenida en el fichero (en hexadecimal) y la almacena en memoria
 	end
 	
 	always@(*)
