@@ -25,8 +25,8 @@ que son ingresados en la ALU
 
 Entradas:
 
-A: Entrada de la ALU, entrada número 1
-B: Entrada de la ALU, entrada número 2
+A: Entrada de la ALU, entrada número 1 para la AND
+B: Entrada de la ALU, entrada número 2 para la AND
 
 Salidas:
 
