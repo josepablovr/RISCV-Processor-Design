@@ -30,7 +30,7 @@ B: Entrada de la ALU, entrada número 2 para la Shift left
 
 Salidas:
 
-R: Resultado del Shift left
+out: Resultado del Shift left
 
 Razón de uso:
 Este módulo se usa como parte del conjunto de operaciones de la ALU, las
