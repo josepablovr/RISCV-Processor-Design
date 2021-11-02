@@ -18,6 +18,26 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+/* 
+Funcionalidad: este módulo se encarga de hacer la operación de Shift left de n cantidad de
+bits definida por el inmediado ingresado por B.
+
+Entradas:
+
+A: Entrada de la ALU, entrada número 1 para el Shift left
+B: Entrada de la ALU, entrada número 2 para la Shift left
+
+Salidas:
+
+R: Resultado del Shift left
+
+Razón de uso:
+Este módulo se usa como parte del conjunto de operaciones de la ALU, las
+cuales van a ser seleccionadas por el seleccionador, está operación funciona
+para las intrucciones de corrimientos a laizquierda de tipo lógico.
+*/
+
 module Shift_left(
     input [31:0] A, //dato de entrada
 	 input [4:0] B,	//dato que define la cantidad de desplazamientos
