@@ -31,9 +31,9 @@ module Extensor(
 	always @(ImmSel, signo, inst)
 		case (ImmSel)
 			2'b00: ImmOut = {signo, inst[31:20]};													//formato I
-			2'b01: ImmOut = {signo, inst[31:25], inst[11:7]};									//formato S
+			2'b01: ImmOut = {signo[11:0], inst[19:12], inst[20], inst[30:21], 1'b0};	//formato J
 			2'b10: ImmOut = {signo, inst[7], inst[30:25], inst[11:8], 1'b0};				//formato B
-			2'b11: ImmOut = {signo[11:0], inst[19:12], inst[20], inst[30:21], 1'b0};	//formato J
+			2'b11: ImmOut = {signo, inst[31:25], inst[11:7]};									//formato S
 		endcase
 
 	assign Imm_U = {inst[31:12], 12'h000}; 	//salida individual para el inmediato de formato U

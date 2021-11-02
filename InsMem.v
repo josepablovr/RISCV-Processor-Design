@@ -46,7 +46,7 @@ module InsMem(
 		begin
 			Mem[i] = 0; //inicialización de memoria
 		end
-		$readmemh("C:/Users/Usuario/Documents/TEC/Semestre 8/Microprocesadores y Microcontroladores/Proyecto Final/Progras/Prueba.txt", Mem, 0); //lee la información contenida en el fichero (en hexadecimal) y la almacena en memoria
+		$readmemh("C:/Users/Usuario/Documents/GitHub/Proyecto_Microprocesadores/Prueba.txt", Mem, 0); //lee la información contenida en el fichero (en hexadecimal) y la almacena en memoria
 	end
 	
 	always@(*)

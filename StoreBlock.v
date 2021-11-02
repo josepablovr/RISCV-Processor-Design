@@ -37,8 +37,8 @@ Mux Multiplexor_byte (
 	 
 Mux2a1 Multiplexor_2a1 (
     .sel(store_select), 
-    .data_A(Mux_byte_out), 
-    .data_B(store_word), 
+    .data_A(store_word), 
+    .data_B(Mux_byte_out), 
     .data_out(store_out)
     );
 
