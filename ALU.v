@@ -18,6 +18,29 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+/* 
+Funcionalidad: este módulo se encarga del rol de la ALU, se usa para realziar operaciones 
+necesarias para el conjunto de instrucciones usadas, desde sumas y restas, hasta desplazamientos
+y operaciones aritmético lógicas.
+
+Entradas:
+
+A: Entrada de la ALU (RD1) que es un registro
+B: Entrada de la ALU (RD2) que puede ser un registro o un inmediato
+ALUSel: Entrada del selccionador para elegir la operación necesaria de la ALU
+
+Salidas:
+
+ALU_Output: Salida de la ALU que contiene el resultado de las operaciones de las instrucciones.
+Offset: Salida de la ALU que almacena los 2 bits menos significativos de la ALU_Output para el Load Block
+Address: Salida de la ALU para el caso de que se necesite la dirección de una nueva memoria con el address alineado
+
+Razón de uso:
+Este módulo se usa para implementar la ALU principal, la cual va a realizar las operaciones 
+de las distintas instrucciones brindadas.
+*/
+
 module ALU(
 	 input [31:0] A, //Primer Operando de entrada
     input [31:0] B, //Segundo Operando de entrada
