@@ -18,14 +18,34 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+/* 
+Funcionalidad: este módulo se encarga de hacer la operación de Shift right aritmético de n cantidad de
+bits definida por el inmediado ingresado por B.
+
+Entradas:
+
+A: Entrada de la ALU, entrada número 1 para el Shift right 
+B: Entrada de la ALU, entrada número 2 para la Shift right 
+
+Salidas:
+
+out: Resultado del Shift right 
+
+Razón de uso:
+Este módulo se usa como parte del conjunto de operaciones de la ALU, las
+cuales van a ser seleccionadas por el seleccionador, está operación funciona
+para las intrucciones de corrimientos a la derecha de tipo aritméticas.
+*/
+
 module Shift_right(
     input signed [31:0] A, //dato de entrada
 	 input [4:0] B,	//dato que define la cantidad de desplazamientos a la derecha
     output reg [31:0] out //salida
     );
 
-//Hola, funciona
-/* Por medio de un case se realiza el desplazamiento lógico a la derecha */
+
+/* Por medio de un case se realiza el desplazamiento aritmético a la derecha con >>>*/
 always @*
    case (B)
       5'b00000: out = A;
