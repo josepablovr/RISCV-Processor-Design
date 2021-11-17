@@ -22,6 +22,16 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+Objetivo de la prueba: Probar las distintas operaciones disponibles en la ALU como el AND, 
+el Sumador, entre las otras, con distintos valores.
+
+Estímulos: la señal de entrada corresponde al seleccionador de la ALU y las entradas de las ALU A y B
+
+Descripción de resultados esperados: se espera que los resultados de las operaciones seleccionadas den el valor correcto
+dependiendo de los valores ingresados.
+*/
+
 module ALU_tb;
 
 	// Inputs
