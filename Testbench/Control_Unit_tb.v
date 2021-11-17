@@ -20,6 +20,15 @@
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
+/*
+Objetivo de la prueba: observar las distintas señales de control de acuerdo al tipo de instrucción
+
+o Estímulos: Se enviarán distintos opcodes, con sus respectivos funct3 y funct7, con el fin de que la unidad de control identifique
+la instrucción que se está leyendo.
+
+o Descripción de resultados esperados: cuando la unidad lea la instrucción, esta deberá ser capaz de generar las señales de control
+correctas. La coherencia de estas últimas, se verificará al comparar los resultados de la simulación con la tabla respectiva.
+*/
 ////////////////////////////////////////////////////////////////////////////////
 
 module Control_Unit_tb;
@@ -42,7 +51,7 @@ module Control_Unit_tb;
 	wire Store_Select;
 	wire Load_Select;
 
-	// SE INICIALIZA LA FUNCIoN
+	// SE INICIALIZA LA FUNCION
 	Control_Unit uut (
 		.opcode(opcode), 
 		.funct7(funct7), 

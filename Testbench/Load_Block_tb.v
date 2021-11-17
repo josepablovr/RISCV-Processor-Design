@@ -20,6 +20,18 @@
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
+/*
+Objetivo de la prueba: probar la lectura de las palabras de memoria
+
+o Estímulos: Inicialmente se coloca un dato de memoria, de esta manera se podrá cambiar el Load_Select para verificar si la
+salida del módulo es una palabra o un byte. Además, en caso de que se quiera cargar un byte, se modifica la señal Offset, 
+con el fin de comprobar que se carga el byte solicitado de la palabra.
+
+o Descripción de resultados esperados: cuando Load_Select es 0, se cargará la palabra completa, si es 1 se cargará el byte 
+seleccionado. El número de byte seleccionado es igual al offset, de manera que si la señal Offset es 10, se cargará el tercer
+byte en los 8 bits menos significartivos de la salida del módulo.
+*/
+
 ////////////////////////////////////////////////////////////////////////////////
 
 module Load_Block_tb;
