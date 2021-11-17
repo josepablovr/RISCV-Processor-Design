@@ -18,17 +18,24 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module MicroArquitectura(clk, rst);
+module MicroArquitectura(clk, rst, WD3, Mux_A, Mux_B, Store_out, GPIO_out, PC_out, ALU_out, Read_data);
 // Entradas externas
 input clk;
 input rst;
 
+// Salidas
+output wire [31:0] GPIO_out;
+
 //Salidas temporales
-/*
-output wire [31:0] SalidaTempEnt1;
-output wire [4:0] SalidaTempEnt2;
-output wire [31:0] SalidaTempSal;
-*/
+
+output wire [31:0] WD3;
+output wire [31:0] Mux_A;
+output wire [31:0] Mux_B;
+output wire [31:0] Store_out;
+output wire [31:0] PC_out;
+output wire [31:0] ALU_out;
+output wire [31:0] Read_data;
+
 
 // Entradas y salidas alambradas
 wire [31:0] PC_in;
@@ -36,18 +43,19 @@ wire [31:0] PC_4;
 wire [31:0] Inst;
 wire [31:0] RD1;
 wire [31:0] RD2;
-wire [31:0] WD3;
-wire [31:0] Mux_A;
-wire [31:0] Mux_B;
+//wire [31:0] WD3;
+//wire [31:0] Mux_A;
+//wire [31:0] Mux_B;
 wire [1:0] Offset;
 wire [31:0] Address;
-wire [31:0] Read_data;
+//wire [31:0] Read_data;
 wire [31:0] Imm_tipo_U;
-wire [31:0] ALU_out;
+//wire [31:0] ALU_out;
 wire [31:0] Imm_out;
-wire [31:0] PC_out;
-wire [31:0] Store_out;
+//wire [31:0] PC_out;
+//wire [31:0] Store_out;
 wire [31:0] Load_out;
+wire GPIO_w;
 
 
 // Salidas de la Unidad de Control (CU)
@@ -160,7 +168,7 @@ StoreBlock STORE_BLOCK (
 DataMem DATA_MEMORY (
     .Address(Address), 
     .Wdata(Store_out), 
-    .MemRW(MemW), 
+    .MemRW(MemW&&~GPIO_w), 
     .clock(clk), 
     .Rdata(Read_data)
     );
@@ -188,9 +196,19 @@ Control_Unit CU (
     .Store_Select(StoreSel), 
     .Load_Select(LoadSel)
     );
-/*	 
-assign SalidaTempEnt1 = WD3;
-assign SalidaTempEnt2 = Inst[11:7];
-assign SalidaTempSal = ALU_out;
-*/
+
+GPIO_control GPIO_CONTROL (
+    .MemW(MemW), 
+    .ALU_out(ALU_out), 
+    .GPIO_W(GPIO_w)
+    );
+
+GPIO_reg GPIO_REG (
+    .in(Store_out), 
+    .En(GPIO_w), 
+    .Rst(rst), 
+    .clk(clk), 
+    .out(GPIO_out)
+    );
+
 endmodule
