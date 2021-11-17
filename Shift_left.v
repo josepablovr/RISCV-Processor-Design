@@ -35,7 +35,7 @@ out: Resultado del Shift left
 Razón de uso:
 Este módulo se usa como parte del conjunto de operaciones de la ALU, las
 cuales van a ser seleccionadas por el seleccionador, está operación funciona
-para las intrucciones de corrimientos a laizquierda de tipo lógico.
+para las intrucciones de corrimientos a la izquierda de tipo lógico.
 */
 
 module Shift_left(
