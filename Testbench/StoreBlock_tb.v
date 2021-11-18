@@ -21,6 +21,18 @@
 // Additional Comments:
 // 
 ////////////////////////////////////////////////////////////////////////////////
+/*
+o Objetivo de la prueba: comprobar que las señales selectoras de los multiplexores funcionan correctamente.
+
+
+o Estímulos: recibe mediante 'Mem' el valor leído en memoria, con la señal 'store_word' se identifica si la instrucción es un SW o un SB,
+'imm_byte' corresponde al primer byte del valor leído en memoria, mientras que las señales 'offset' y 'store_select' funcionan como selectoras
+en dos multiplexores distintos.
+
+
+o Descripción de resultados esperados: se espera que dependiendo de SW o SB se reacomode el nuevo valor a escribir con los datos precargados
+de memoria.
+*/
 
 module StoreBlock_tb;
 
