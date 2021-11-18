@@ -21,6 +21,16 @@
 // Additional Comments:
 // 
 ////////////////////////////////////////////////////////////////////////////////
+/*
+o Objetivo de la prueba: esta prueba simplemente verifica que la comparación entre los dos registros se realiza correctamente.
+
+
+o Estímulos: recibe RD1 y RD2 que corresponde a los dos registros que se comparan.
+
+
+o Descripción de resultados esperados: se espera que si los dos registros son iguales la salida BrRes se coloque en 0 y en el caso 
+contrario que se coloque en 1.
+*/
 
 module branch_comp_tb;
 
