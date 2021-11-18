@@ -18,6 +18,22 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+/*
+Funcionalidad: enviar a la memoria de datos el valor correcto a escribir
+
+Entradas: 
+Mem: valor leído de la memoria
+store_word: dato almacenado en el registro RS1 de fuente de operación
+imm_byte: primer byte del valor leído en memoria
+offset: es un selector de un mux, fue calculado por el bloque Address Generator y permite colocar los valores leídos correctamente.
+store_select: es otro selector de un mux que permite seleccionar entre el caso de SW y SB.
+
+Salidas:
+store_out: es la señal que entra al bloque de memoria de datos, indicando el valor a escribir.
+
+Razón de uso: se requirió para realizar el almacenamiento de 1 byte en memoria sin modificar los demás.
+*/
+
 module StoreBlock(Mem, imm_byte, offset, store_select, store_word, store_out);
 	input [31:0] Mem;
 	input [7:0] imm_byte;
