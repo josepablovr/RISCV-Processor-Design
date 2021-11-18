@@ -21,6 +21,14 @@
 // Additional Comments:
 // 
 ////////////////////////////////////////////////////////////////////////////////
+/*
+o Objetivo de la prueba: verificar que la interconexión de módulos funciona correctamente.
+
+o Estímulos: recibe la señal de reloj y la señal de reset.
+
+o Descripción de resultados esperados: se espera que dependiendo del valor de la señal de reset se reinicie la memoria de registros
+y el valor guardado en GPIO_reg, además se espera que no hayan problemas entre el 'cableado' de los módulos.
+*/
 
 module MicroArquitectura_tb();
 
