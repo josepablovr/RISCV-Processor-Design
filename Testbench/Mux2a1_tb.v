@@ -22,6 +22,17 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+Objetivo de la prueba: Comprobar el correcto funcionamiento de la MUX de 2 a 1, de manera que el seleccionador
+de verdad indique la entrada correcta que debe de pasar.
+
+Estímulos: la señal de entrada corresponde a dos valores diferentes agregados a las entradas A y B, y se varia
+al seleccionador para poder ver las dos opciones. 
+
+Descripción de resultados esperados: se esperan ver en la señal de seleccionador '0' a la entrada A y lo que contenga
+y lo mismo para los otros valores del seleccionador.
+*/
+
 module Mux2a1_tb;
 
 	// Inputs

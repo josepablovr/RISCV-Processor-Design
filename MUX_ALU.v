@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 /* 
-Funcionalidad: este módulo se encarga de controlar que operación se hace y su resultado. 
+Funcionalidad: este módulo se encarga de controlar que operación se hace para la ALU y su resultado. 
 
 Entradas:
 

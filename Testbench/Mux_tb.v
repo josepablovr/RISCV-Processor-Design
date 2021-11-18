@@ -22,6 +22,18 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+Objetivo de la prueba: Probar el correcto funcionamiento de la MUX del Store Block, con esta se busca observar
+que las distintas configuraciones de bits creadas se cumplan.
+
+Estímulos: Las señales de entrada deberían de corresponder a las provenientes del offset y la memoria, para esta 
+prueba se usan señales arbitrarias para ver el funcionamiento general, se indica un data_memory y el offset (sel) para
+poder ver cada uno de los cuatro casos del MUX.
+
+Descripción de resultados esperados: se espera poder observar las dintintas entradas (cuatro) del MUX, cada una va a tener un
+orden y acomodo de los bits diferentes. 
+*/
+
 module Mux_tb;
 
 	// Inputs
