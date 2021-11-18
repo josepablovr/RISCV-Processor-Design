@@ -21,6 +21,16 @@
 // Additional Comments:
 // 
 ////////////////////////////////////////////////////////////////////////////////
+/*
+o Objetivo de la prueba: verificar que el m茅todo empleado para realizar el dump de memoria funciona correctamente.
+
+o Est铆mulos: 
+clk: se帽al de reloj
+rst: se帽al de reset
+Se instancia el m贸dulo 'Microarquitectura' y se extraen algunas se帽ales del mismo para escribir en el dump, tales como 'Address' y 'Read_data'.
+
+o Descripci贸n de resultados esperados: se espera que los valores guardados en el archivo Dump.txt coincidan con las instrucciones del ejercicio que se pruebe.
+*/
 
 module tb_full();
 
@@ -49,14 +59,14 @@ module tb_full();
 		.GPIO_out(GPIO_out),
 		.PC_out(PC_out)
 	);
-
+	//n贸tese que los ciclos for se dividen en dos partes debido a la limitante del software para tratar con tantas iteraciones
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		rst = 1;
 		#5 rst = 0;
 		
-		for (i = 0; i < 248; i = i + 1) // Inicializaci髇 de Memoria de datos para dump
+		for (i = 0; i < 248; i = i + 1) // Inicializaci贸n de Memoria de datos para dump
 			begin
 				MemDump[i] = 0;
 			end
@@ -93,7 +103,7 @@ module tb_full();
 				end
 				
 				fd = $fopen("C:/Users/Usuario/Documents/GitHub/Proyecto_Microprocesadores/Dump.txt","w");
-				$fwrite(fd, "Direcci髇 valor(hex)\n","");
+				$fwrite(fd, "Direcci贸n valor(hex)\n","");
 				#5;
 				for (i = 0; i < 248; i = i + 1)
 				begin
