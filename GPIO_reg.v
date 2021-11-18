@@ -25,10 +25,13 @@ module GPIO_reg(in, En, Rst, clk, out);
 	output reg [31:0] out = 0;
 	
    always @(posedge clk or posedge Rst)
-      if (Rst) begin
-         out <= 32'd0;
-      end else if (En) begin
-         out <= in;
-      end
-
+      if (Rst)
+			begin
+				out <= 32'd0;
+			end
+		else
+			if (En)
+				begin
+				out <= in;
+				end
 endmodule

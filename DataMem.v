@@ -53,10 +53,10 @@ module DataMem(
 	integer i;	//entero de 32 bits
 	
 	initial begin									//inicialización de la memoria tomando en cuenta el límite de 250 loops del software
-		for (i=0; i<250; i=i+1) begin
+		for (i = 0; i < 248; i = i + 1) begin
 			Mem[i] = 0;
 		end
-		for (i=250;i<256; i=i+1)
+		for (i = 248 ;i < 256; i = i + 1)
 		begin
 			Mem[i] = 0;
 		end
