@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module MicroArquitectura(clk, rst, WD3, Mux_A, Mux_B, Store_out, GPIO_out, PC_out, ALU_out, Read_data);
+module MicroArquitectura(clk, rst, WD3, Mux_A, Mux_B, Store_out, GPIO_out, PC_out, ALU_out, Read_data, Address);
 // Entradas externas
 input clk;
 input rst;
@@ -35,6 +35,7 @@ output wire [31:0] Store_out;
 output wire [31:0] PC_out;
 output wire [31:0] ALU_out;
 output wire [31:0] Read_data;
+output wire [31:0] Address;
 
 
 // Entradas y salidas alambradas
@@ -47,7 +48,7 @@ wire [31:0] RD2;
 //wire [31:0] Mux_A;
 //wire [31:0] Mux_B;
 wire [1:0] Offset;
-wire [31:0] Address;
+//wire [31:0] Address;
 //wire [31:0] Read_data;
 wire [31:0] Imm_tipo_U;
 //wire [31:0] ALU_out;
