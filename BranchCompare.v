@@ -26,9 +26,9 @@ RD2: registro 2
 Salida:
 BrRes: Indica si no son iguales 
 
-Razón de uso:
-Se desarrolló este comparador fuera de la ALU con el fin de ejecutar la suma
-de PC + imm de manera parela
+RazÃ³n de uso:
+Se desarrollÃ³ este comparador fuera de la ALU con el fin de ejecutar la suma
+de PC + imm de manera paralela
 */
 //////////////////////////////////////////////////////////////////////////////////
 module BranchCompare(
