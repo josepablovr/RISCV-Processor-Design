@@ -18,6 +18,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+/*
+Funcionalidad: este módulo interconecta los bloques de la arquitectura.
+
+Entradas:
+clk: señal de reloj
+rst: señal de reset
+
+Salidas:
+GPIO_out: señal que contiene el valor de memoria de la dirección 0xABCD
+
+Razón de uso: se implementó por la necesidad de unir los distintos bloques de manera ordenada.
+*/
+
 module MicroArquitectura(clk, rst, WD3, Mux_A, Mux_B, Store_out, GPIO_out, PC_out, ALU_out, Read_data, Address);
 // Entradas externas
 input clk;
