@@ -18,6 +18,25 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+
+/*
+Funcionalidad: este módulo se encarga de generar los inmediatos de 32bits requeridos
+					según cada tipo de instrucción.
+
+Entradas:
+- ImmSel: selector de 2bits para el tipo de inmediato, según el formato de la instrucción
+- inst: entrada de 25bits que corresponden a los bits más significativos [31:7] de la instrucción
+		  (en estos bits se codifica el inmediato)
+
+Salidas:
+- ImmOut: salida de 32bits para los inmediatos tipo I, J, B y S (se elige con el selector ImmSel)
+- Imm_U: salida de 32bits particular y exclusiva para inmediatos del tipo U
+
+Razón de uso: se introdujo este módulo para extraer y decodificar el inmediato de la instrucción,
+				  además de extenderlo a 32 bits, respetando el formato específico de cada instrucción
+
+*/
+
 module Extensor(
 	input [1:0] ImmSel,
 	input [31:7] inst,

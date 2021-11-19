@@ -25,6 +25,7 @@ ENTRADAS:
 opcode[6:2]: indica el tipo de instrucción
 funct3[5]: especifica la instruccion en los tipos R, I y S 
 funct7: especifica la instruccion en el tipo R.
+BrRes: determina si los dos registros no son iguales
 
 SALIDAS:
 PCSel: Selecciona si se lee el valor de PC+4 o PC + imm
