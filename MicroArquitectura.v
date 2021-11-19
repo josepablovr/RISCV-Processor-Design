@@ -188,7 +188,7 @@ DataMem DATA_MEMORY (
     );
 
 Load_Block LOAD_BLOCK (
-    .Load_Memory(Read_data), 
+    .Read_data(Read_data), 
     .Load_Select(LoadSel), 
     .Offset(Offset), 
     .Load_data(Load_out)
