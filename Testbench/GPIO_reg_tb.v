@@ -22,6 +22,16 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+- Objetivo de la prueba: verificar el correcto funcionamiento del registro de salida del GPIO
+
+- Estímulos: se modifica constantemente el dato de entrada y se activan las señales de Enable y Reset
+				 en ciertos instantes de la simulación para observar el comportamiento
+
+- Descripción de resultados esperados: se espera que el registro cargue el dato de entrada cuando se active
+													la señal de enable y también que se reinicie cuando el reset se active
+*/
+
 module GPIO_reg_tb;
 
 	// Inputs
@@ -50,15 +60,19 @@ module GPIO_reg_tb;
 		clk = 0;
 	end
 	
+	//control del reloj
 	always #5 clk = ~clk;
 	
+	//variación del dato de entrada
 	always #10 in = in + 1;
 	
+	//Activación/desactivación del enable
 	always begin
 		#30 En = 1'b1;
 		#10 En = 1'b0;
 	end
 	
+	//control de la señal de reset
 	always begin
 		#200 Rst = 1'b1;
 		#10  Rst = 1'b0;

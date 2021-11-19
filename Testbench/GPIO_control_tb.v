@@ -22,6 +22,15 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+- Objetivo de la prueba: verificar el correcto funcionamiento del módulo controlador del GPIO
+
+- Estímulos: se modifican periódicamente las señales de entrada para observar el comportamiento
+
+- Descripción de resultados esperados: se espera que la salida GPIO_W se coloque en alto cuando
+													ALU_out == 0xABCD y MemW == 1
+*/
+
 module GPIO_control_tb;
 
 	// Inputs
@@ -44,8 +53,10 @@ module GPIO_control_tb;
 		ALU_out = 32'h0000ABC0;
 	end
 	
+	//se cambia periódicamente la señal MemW
 	always #30 MemW = ~MemW;
-      
+   
+	//se incrementa periódicamente el valor de ALU_out
 	always #10 ALU_out[3:0] = ALU_out[3:0] + 1;
 	
 endmodule

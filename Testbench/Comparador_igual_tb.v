@@ -22,6 +22,16 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+- Objetivo de la prueba: verificar el correcto funcionamiento del comparador de datos iguales
+
+- Estímulos: se modifica periódicamente el dato en la entrada A mientras que B se mantiene
+				 constante con un valor de 0x0000ABCD
+
+- Descripción de resultados esperados: se espera que la salida se active ("igual" en alto) cuando
+													ambas entradas A y B sean iguales
+*/
+
 module Comparador_igual_tb;
 
 	// Inputs
@@ -43,9 +53,10 @@ module Comparador_igual_tb;
 		A = 32'h0000ABC0;
 		B = 32'h0000ABCD;
 		
-		#200 $finish;
+		#200 $stop;
 	end
-      
+   
+   //se incrementa periódicamente la entrada A
 	always #10 A = A + 1;
 		
 endmodule
