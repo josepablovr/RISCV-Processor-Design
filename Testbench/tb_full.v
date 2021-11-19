@@ -20,7 +20,6 @@
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
-////////////////////////////////////////////////////////////////////////////////
 /*
 o Objetivo de la prueba: verificar que el m茅todo empleado para realizar el dump de memoria funciona correctamente.
 
@@ -31,6 +30,7 @@ Se instancia el m贸dulo 'Microarquitectura' y se extraen algunas se帽ales del mi
 
 o Descripci贸n de resultados esperados: se espera que los valores guardados en el archivo Dump.txt coincidan con las instrucciones del ejercicio que se pruebe.
 */
+////////////////////////////////////////////////////////////////////////////////
 
 module tb_full();
 
@@ -47,6 +47,10 @@ module tb_full();
 	wire [31:0] Store_out;
 	wire [31:0] GPIO_out;
 	wire [31:0] PC_out;
+	wire [31:0] Address;
+	wire [31:0] Read_data;
+	wire [31:0] ALU_out;
+
 
 	// Instantiate the Unit Under Test (UUT)
 	MicroArquitectura uut (
@@ -57,7 +61,10 @@ module tb_full();
 		.Mux_B(Mux_B),
 		.Store_out(Store_out),
 		.GPIO_out(GPIO_out),
-		.PC_out(PC_out)
+		.PC_out(PC_out),
+		.Read_data(Read_data),
+		.Address(Address),
+		.ALU_out(ALU_out)
 	);
 	//n贸tese que los ciclos for se dividen en dos partes debido a la limitante del software para tratar con tantas iteraciones
 	initial begin
@@ -66,7 +73,7 @@ module tb_full();
 		rst = 1;
 		#5 rst = 0;
 		
-		for (i = 0; i < 248; i = i + 1) // Inicializaci贸n de Memoria de datos para dump
+		for (i = 0; i < 248; i = i + 1) // Inicializaci髇 de Memoria de datos para dump
 			begin
 				MemDump[i] = 0;
 			end
@@ -79,41 +86,44 @@ module tb_full();
 	reg [31:0] MemDump [255:0]; // Memoria de datos para dump
    integer  fd = 0;
 	
-	always @(posedge clk)
+	always @(negedge clk)
 	begin
 		if (uut.Inst == 32'd0)
 		begin 
-				rst=1;
-				$stop;
+				rst = 1;
 				
 				for (i = 0; i < 248; i = i + 1) // Memoria de datos
-				begin
-					force uut.Address = i*4;
-					#10;
-					MemDump[i] = uut.Read_data;
-					#10;
-				end
+                begin
+                    force uut.Address = i*4;
+                    #10;
+                    clk = 1;
+                    MemDump[i] = uut.Read_data;
+                    #10;
+                    clk = 0;
+                end
+
+				 for (i = 248; i < 256; i = i + 1) // Memoria de datos
+					 begin
+						  force uut.Address = i*4;
+						  #10;
+						  clk = 1;
+						  MemDump[i] = uut.Read_data;
+						  #10;
+						  clk = 0;
+				 end
 				
-				for (i = 248; i < 256; i = i + 1) // Memoria de datos
-				begin
-					force uut.Address = i*4;
-					#10;
-					MemDump[i] = uut.Read_data;
-					#10;
-				end
-				
-				fd = $fopen("C:/Users/Usuario/Documents/GitHub/Proyecto_Microprocesadores/Dump.txt","w");
-				$fwrite(fd, "Direcci贸n valor(hex)\n","");
-				#5;
+				fd = $fopen("C:/Users/Jose Pablo/Documents/6to Semestre/Microprocesadores y Microcontroladores/Proyecto/Github/Dump.txt","w");
+				$fwrite(fd, "Direcci髇 valor(hex)\n","");
+				#6;
 				for (i = 0; i < 248; i = i + 1)
 				begin
 					$fwrite(fd, "%d - 0x%h\n", i*4, MemDump[i]);
-					#5;
+					#6;
 				end
 				for (i = 248; i < 256; i = i + 1)
 				begin
 					$fwrite(fd, "%d - 0x%h\n", i*4, MemDump[i]);
-					#5;
+					#6;
 				end
 				$fclose(fd);
 				$stop;
